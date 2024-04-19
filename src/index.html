@@ -10,10 +10,137 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./tailwind.css">
+    <!-- Alpine JS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <h1 class="text-6xl">Hello World</h1>
-    <p class="font-inter">Contoh</p>
+
+    <!-- Navigation -->
+    <nav class="py-4 lg:py-9 px-4 lg:px-48" x-data="{ navOpen: false }">
+        <div class="md:container sm:container mx-auto z-50 fixed top-0 right-0 left-0 px-4 lg:px-48 py-4 lg:py-9 bg-white">
+            <div class="flex justify-between items-center bg-white">
+                <img src="../public/images/Logo.svg" alt="">
+                <img @click="navOpen = !navOpen" src="../public/images/toggle.svg" alt="" class="lg:hidden">
+                <div class="order-2 hidden lg:block">
+                    <ul class="flex gap-16">
+                        <li class="text-second font-bold text-sm font-circular">
+                            <a href="#" x-on:click="scrollToSection('#')">Home</a>
+                        </li>
+                        <li class="text-second font-bold text-sm font-circular">
+                            <a href="#about" x-on:click="scrollToSection('#about')">Tentang Kami</a>
+                        </li>
+                        <li class="text-second font-bold text-sm font-circular">
+                            <a href="#galeri" x-on:click="scrollToSection('#galeri')">Galeri</a>
+                        </li>
+                        <li class="text-second font-bold text-sm font-circular">
+                            <a href="#kontak" x-on:click="scrollToSection('#kontak')">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div x-show="navOpen" class="z-50 fixed bottom-0 right-0 left-0 bg-white p-4 md:px-48 md:py-4 border lg:hidden">
+            <ul class="flex justify-between">
+                <li>
+                    <button class="flex justify-center flex-col items-center text-base gap-1" x-on:click="scrollToSection('#home')">
+                        <ion-icon name="home-outline" class="text-2xl text-grey"></ion-icon>
+                        <span class="text-grey text-base font-normal">Home</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center text-base gap-1" x-on:click="scrollToSection('#about')">
+                        <ion-icon name="sparkles-outline" class="text-2xl text-grey"></ion-icon>
+                        <span class="text-grey text-base font-normal">Tentang</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center text-base gap-1" x-on:click="scrollToSection('#galeri')">
+                        <ion-icon name="images-outline" class="text-2xl text-grey"></ion-icon>
+                        <span class="text-grey text-base font-normal">Galeri</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="flex justify-center flex-col items-center text-base gap-1" x-on:click="scrollToSection('#kontak')">
+                        <ion-icon name="call-outline" class="text-2xl text-grey"></ion-icon>
+                        <span class="text-grey text-base font-normal">Kontak</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
     
+    <!-- Hero Section -->
+    <section>
+        <div class="container mx-auto mt-10 mb-24 px-4 pt-12 pb-0.5 md:py-12 lg:px-48">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
+                    <h1 class="mt-8 mb-6 md:mt-[43px] md:mb-[43px] font-bold text-primary text-[40px] md:text-[56px] lg:text-[69px] leading-tight text-center lg:text-start">Tumbuh <span class="text-second">Bersama</span> di dalam <span class="text-second">Kasih!</span></h1>
+                    <p class="mb-8 md:mb-[43px] text-center lg:text-start text-primary opacity-50 text-base md:text-[18px] lg:text-[18px] lg:w-full font-inter md:w-3/4 mx-auto">Bersatu dalam Iman, bertumbuh bersama dalam kasih karunia Kristus.</p>
+                </div>
+                <div class="col-span-12 lg:col-span-8 order-1 lg:order-2 text-center">
+                    <img src="../public/images/hero.svg" class="w-full" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="about">
+        <div class="container mx-auto px-11 py-12 lg:pt-[108px] lg:px-48">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12 lg:col-span-6 items-center">
+                    <img src="../public/images/tentang.svg" class="w-3/4 mx-auto" alt="">
+                </div>
+                <div class="col-span-12 lg:col-span-6">
+                    <h1 class="mt-8 mb-6 font-bold text-primary text-[32px] md:text-[40px] lg:text-[44px] leading-tight text-center lg:text-start">Tentang Kami</h1>
+                    <p class="mb-8 text-center lg:text-start text-primary opacity-50 text-base md:text-[18px] lg:text-[18px] font-inter mx-auto">DC Spirit Love merupakan bagian dari komunitas pemuridan di GBI El Shaddai Pontianak atau yang dikenal El Shaddai Church (ESC).<br><br>
+
+                    Didalamnya terdapat sejumlah anggota jemaat yang dimuridkan oleh pemimpin rohaninya yang disebut DM. Kegiatan yang dilakukan dalam DC biasanya mengadakan pertemuan rutin dan saling sharing tentang kehidupan dan belajar mempraktekkan kasih dan Firman Tuhan dalam kehidupan sehari-hari. Tujuannya agar iman semakin bertumbuh dan kehidupan semakin dewasa dalam Yesus.<br><br>
+                        
+                    Kami memiliki visi yaitu terjadinya perubahan hidup yang semakin serupa dengan Yesus Kristus dan lahirnya pemurid baru.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Foto Section -->
+    <section id="galeri">
+        <div class="container mx-auto px-11 py-12 lg:py-[108px] lg:px-48">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12">
+                    <p class="text-center text-second text-base font-circular mx-auto tracking-widest">GALERI FOTO</p>
+                    <h1 class="mt-4 mb-9 font-bold text-primary text-[32px] md:text-[40px] lg:text-[44px] leading-tight text-center">Kegiatan DC Spirit Love</h1>
+                </div>
+                <div class="col-span-12 items-center">
+                    <img src="../public/images/galeri.svg" alt="" class="w-full mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section class="bg-primary">
+        <div class="container mx-auto px-11 py-12 lg:py-[108px] lg:px-48" id="kontak">
+            <div class="grid grid-cols-12 items-center">
+                <div class="col-span-12 lg:col-span-6">
+                    <div>
+                        <h1 class="mt-4 mb-9 font-bold text-white text-[32px] md:text-[40px] lg:text-[44px] leading-tight">DCSpiritLove</h1>
+                        <p class="mb-8 text-start text-white opacity-50 text-base md:text-[18px] lg:text-[18px] font-inter mx-auto">GBI El Shaddai, Jl. Prof. M.Yamin No.1A, Sungai Bangkong, Kec. Pontianak Kota, Kota Pontianak,    Kalimantan Barat 78116</p>
+                    </div>
+                    <div class="mb-8 flex items-center">
+                    <img src="../public/images/instagram.svg" alt="">
+                    <p class="text-white opacity-50 text-base md:text-[18px] lg:text-[18px] font-inter pl-2">@dc.spiritlove</p>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1994.908436545546!2d109.3179895!3d-0.0488015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d591202901daf%3A0x7138b14058c20347!2sEl%20Shaddai%20Church!5e0!3m2!1sen!2sid!4v1713419368056!5m2!1sen!2sid"tyle="border:0;" loading="lazy" class="w-full h-full"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

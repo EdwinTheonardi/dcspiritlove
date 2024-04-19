@@ -4,10 +4,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        "inter" : ['inter']
+        "inter" : ['inter'],
+        "circular" : ['Circular STD']
       },
       colors : {
-
+        "primary" : '#191825',
+        "second" : '#F85E9F',
+        "ungu" : '#5D50C6'
       }
     },
 
